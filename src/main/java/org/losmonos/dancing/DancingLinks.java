@@ -219,10 +219,6 @@ public class DancingLinks {
         }
         else {
             Header col = nextColumn();
-            if (col.size < 0) {
-                return;
-            }
-
             cover(col);
 
             for (Node row = col.d; col != row; row = row.d) {
