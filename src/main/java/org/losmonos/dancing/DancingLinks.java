@@ -3,6 +3,7 @@ package org.losmonos.dancing;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.losmonos.dancing.DancingLinks.Cell._1;
@@ -14,10 +15,8 @@ public class DancingLinks {
      * this represents a cell into the table, according to Knuth paper this is a double-linked list
      * with _l_eft/_r_right and _u_p/_d_own and a point to the header c
      */
-    public static class Node {
-
+    private static class Node {
         public Header c;
-
 
         public Node l;
         public Node r;
@@ -32,12 +31,8 @@ public class DancingLinks {
             this.d = d;
         }
 
-        public static Node of() {
-            return new Node(null,null,null,null,null);
-        }
-
-        public static Node of(Header c, Node l, Node r, Node u, Node d) {
-            return new Node(c,l,r,u,d);
+        public static Node of(Header c, Node u, Node d) {
+            return new Node(c,null,null,u,d);
         }
 
     }
@@ -54,6 +49,7 @@ public class DancingLinks {
             super(null,null,null,null,null);
             this.size = size;
             this.name = name;
+            this.c = this;
         }
 
         public static Header of(Integer size, String name) {
@@ -79,13 +75,13 @@ public class DancingLinks {
         head = h;
     }
 
-    public void addColumn(String ...names) {
+    public void addColumn(List<String> names) {
         for (String name: names) {
             addColumn(name);
         }
     }
 
-    private void addColumn(String name) {
+    public void addColumn(String name) {
         colSize = colSize + 1;
 
         Header col = Header.of(0, name);
@@ -108,11 +104,22 @@ public class DancingLinks {
         _0, _1
     }
 
-    public void addRow(Cell ...row) {
+    public void addRow(Cell... row) {
+        addRow(Arrays.asList(row));
+    }
+
+    public void printHeader() {
+        for (Node col = head.r; col != head; col = col.r )  {
+            System.out.print(col.c.name);
+            System.out.print(" - ");
+        }
+        System.out.println("");
+    }
+    public void addRow(List<Cell> row) {
         Header workingCol = head;
         Node prev = null;
 
-        if (row.length != colSize) {
+        if (row.size() != colSize) {
             throw new RuntimeException("invalid row size: cannot be distinct than column size");
         }
 
@@ -123,7 +130,7 @@ public class DancingLinks {
                 workingCol.size += 1;
 
                 Node bottom = workingCol.u;
-                Node node = Node.of(workingCol, null, null, bottom, workingCol);
+                Node node = Node.of(workingCol, bottom, workingCol);
                 bottom.d = node;
                 workingCol.u = node;
 
@@ -159,17 +166,15 @@ public class DancingLinks {
                 cell.u.d = cell.d;
                 cell.c.size -= 1;
             }
-
         }
 
     }
 
-    private void uncover(Header col) {
+    private void uncover(Header col ) {
         /* Column iterator u -> u -> .. -> u  */
         for (Node row = col.u; row != col; row = row.u) {
 
             /* Row iterator l <- l <- .. <- l */
-
             for (Node cell = row.l; cell != row; cell = cell.l) {
                 cell.c.size += 1;
 
