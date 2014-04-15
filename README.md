@@ -1,6 +1,6 @@
 #sudoku-solver
 
-Yet another sudoku solver based on Knuth's dancing link algorithm. And a sudoku grabber using OpenCV, i use a lot of ideas from openstack, several blogs in order to build this in java, so many thanks to all people that work hard for knowledge transfer.
+Yet another sudoku solver based on Knuth's dancing link algorithm. And a sudoku grabber using OpenCV, i use a lot of ideas from openstack, several blogs in order to build this in java, so many thanks to all people that work hard to transfer knowledge.
 
 ##Dancing
 
@@ -11,7 +11,7 @@ Dancing package is the implementation of the dancing links algorithm and the sud
 This is more like a work-in-progress, theres several ideas out there, it work with a few images, and fails miserably with others.
 If you want it to run, you need a compiled binary of OpenCV i'm using now 2.4.8, and the jar. Put the sharedlibraty on lib/, install opencv jar with maven and the exec:exec do the rest.
 
-install in a local repo opencv-jar
+install in a local maven repo opencv-jar
 
 ```
  mvn install:install-file -Dfile=lib/opencv-248.jar
