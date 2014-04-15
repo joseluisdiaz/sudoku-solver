@@ -1,12 +1,10 @@
-package matrix;
+package org.losmonos.sudoku.dancing;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 import com.google.common.io.Resources;
 import org.junit.Assert;
 import org.junit.Test;
-import org.losmonos.dancing.Board;
-import org.losmonos.dancing.SudokuSolver;
 
 import java.io.File;
 import java.io.IOException;
@@ -56,5 +54,19 @@ public class SudokuSolverTest {
 
         Assert.assertThat(s.solve().toString(), is(board));
     }
+
+    @Test
+    public void solver2Test() throws IOException, URISyntaxException {
+        Board b = get("sudoku9x9.txt", 9);
+        long start = System.currentTimeMillis();
+
+        SudokuSolver s = new SudokuSolver(b);
+
+
+        s.solve();
+        System.out.println(System.currentTimeMillis() - start);
+    }
+
+
 
 }

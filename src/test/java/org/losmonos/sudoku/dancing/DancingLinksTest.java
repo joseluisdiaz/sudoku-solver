@@ -1,13 +1,10 @@
-package matrix;
+package org.losmonos.sudoku.dancing;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 import org.junit.Test;
-import org.losmonos.dancing.Board;
-import org.losmonos.dancing.DancingLinks;
 
-import static org.losmonos.dancing.DancingLinks.Cell._0;
-import static org.losmonos.dancing.DancingLinks.Cell._1;
+import static org.losmonos.sudoku.dancing.DancingLinks.Cell._0;
+import static org.losmonos.sudoku.dancing.DancingLinks.Cell._1;
 
 
 public class DancingLinksTest {

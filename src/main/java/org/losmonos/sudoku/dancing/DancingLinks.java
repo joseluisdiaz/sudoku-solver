@@ -1,4 +1,4 @@
-package org.losmonos.dancing;
+package org.losmonos.sudoku.dancing;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -6,7 +6,7 @@ import com.google.common.collect.Lists;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.losmonos.dancing.DancingLinks.Cell._1;
+import static org.losmonos.sudoku.dancing.DancingLinks.Cell._1;
 
 
 public class DancingLinks {

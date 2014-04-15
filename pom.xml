@@ -8,7 +8,6 @@
     <artifactId>sudoku</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -20,7 +19,41 @@
             <artifactId>guava</artifactId>
             <version>16.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.opencv</groupId>
+            <artifactId>opencv</artifactId>
+            <version>2.4.8</version>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>-Djava.library.path=${project.basedir}/lib</argLine>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <executable>java</executable>
+                    <workingDirectory>${project.basedir}/</workingDirectory>
+                    <arguments>
+                        <argument>-Djava.library.path=${project.basedir}/lib</argument>
+                        <argument>-classpath</argument>
+                        <classpath/>
+                        <argument>org.losmonos.sudoku.Main</argument>
+                        <argument>${image}</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
 
 
 </project>

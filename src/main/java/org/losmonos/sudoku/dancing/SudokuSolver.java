@@ -1,15 +1,12 @@
-package org.losmonos.dancing;
+package org.losmonos.sudoku.dancing;
 
 import com.google.common.base.CharMatcher;
-import com.google.common.base.Function;
 import com.google.common.base.Splitter;
 import com.google.common.collect.*;
 
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
-import static org.losmonos.dancing.DancingLinks.Cell;
+import static org.losmonos.sudoku.dancing.DancingLinks.Cell;
 
 public class SudokuSolver {
 
@@ -130,7 +127,5 @@ public class SudokuSolver {
 
         return result;
    }
-
-
 
 }
