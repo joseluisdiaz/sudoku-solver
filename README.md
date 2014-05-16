@@ -1,6 +1,6 @@
 #sudoku-solver
 
-Yet another sudoku solver based on Knuth's dancing link algorithm. And a sudoku grabber using OpenCV, i use a lot of ideas from openstack, several blogs in order to build this in java, so many thanks to all people that work hard to transfer knowledge.
+Yet another sudoku solver based on Knuth's dancing link algorithm. And a sudoku grabber using OpenCV, i use a lot of ideas from stack*overflow*, several blogs in order to build this in java, so many thanks to all people that work hard to transfer knowledge.
 
 ##Dancing
 
