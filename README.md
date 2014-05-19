@@ -31,7 +31,7 @@ Compile it! :-)
 mvn compile
 ```
 
-And... probably it will run! (java it should be in path)
+And... probably it will run! (java binary should be in path)
 
 ```
 mvn exec:exec -Dimage=src/test/resources/sudoku_ok_2.jpg
