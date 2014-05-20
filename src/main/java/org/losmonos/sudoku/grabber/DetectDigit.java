@@ -47,6 +47,9 @@ public class DetectDigit {
                 int currentCell = i * cols+j;
                 double label = (j+i * cols) / totalPerClass;
 
+                // HACK!
+                if (label == 0) continue;
+
                 Mat cell = deskew(new Mat(img, rect));
                 Mat procCell = procSimple(cell);
 
