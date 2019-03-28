@@ -97,7 +97,7 @@ That's the result to apply to the detected digits [KNN](http://es.wikipedia.org/
 
 
 ## Author:
-*  José Luis Diaz (jose at rtfm dot org dot ar)
+*  José Luis Diaz (diazjoseluis at gmail dot com)
 
 ## License
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
